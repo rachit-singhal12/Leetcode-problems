@@ -9,16 +9,10 @@ using namespace std;
 class Solution{
 public:	
 	vector<int> kLargest(int arr[], int n, int k) {
-	    sort(arr,arr+n);
-	    int count = k;
-	    int size=1;
 	    vector<int>v;
-	    while(count>0)
-	    {
-	        v.push_back(arr[n-size]);
-	        count--;
-	        size++;
-	    }
+	    sort(arr,arr+n);
+	    for(int i=n-1;i>=n-k;i--)
+	    v.push_back(arr[i]);
 	    return v;
 	}
 
