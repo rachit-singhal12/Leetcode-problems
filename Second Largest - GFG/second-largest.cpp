@@ -10,16 +10,25 @@ public:
 	// Function returns the second
 	// largest elements
 	int print2largest(int arr[], int n) {
-	    set<int>s;
+	    int largest1 = arr[0];
+	    for(int i=1;i<n;i++)
+	    if(arr[i]>largest1)largest1 = arr[i];
+	    int largest2=-1;
 	    for(int i=0;i<n;i++)
-	    s.insert(arr[i]);
-	    vector<int>v;
-	    for(auto x : s)
-	    v.push_back(x);
-	    if(v.size()>1)
-	    return v[v.size()-2];
-	    else
-	    return -1;
+	    if(arr[i]!=largest1)
+	    {
+	        largest2 = arr[i];
+	        break;
+	    }
+	    for(int i=1;i<n;i++)
+	    {
+	        if(arr[i]==largest1)continue;
+	        else
+	        {
+	            if(arr[i]>largest2)largest2 = arr[i];
+	        }
+	    }
+	    return largest2;
 	}
 };
 
