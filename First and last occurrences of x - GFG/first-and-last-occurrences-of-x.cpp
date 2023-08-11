@@ -5,25 +5,20 @@ using namespace std;
 // } Driver Code Ends
 vector<int> find(int arr[], int n , int x )
 {
-    vector<int>v;
-    int temp1=-1,temp2=-1;
+    int first = -1,second=-1;
     for(int i=0;i<n;i++)
     {
-        if(arr[i]==x){
-            temp1 = i;
-            break;
+        if(arr[i]==x && first == -1)
+        {
+            first = i;
+            second=i;
+        }
+        else if(arr[i]==x)
+        {
+            second = i;
         }
     }
-    for(int i=n-1;i>=0;i--)
-    {
-        if(arr[i]==x){
-            temp2 = i;
-            break;
-        }
-    } 
-    v.push_back(temp1);
-    v.push_back(temp2);
-    return v;
+    return {first,second};
 }
 
 //{ Driver Code Starts.
