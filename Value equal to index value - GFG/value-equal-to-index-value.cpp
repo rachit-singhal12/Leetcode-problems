@@ -13,10 +13,7 @@ public:
 	    vector<int>v;
 	    for(int i=0;i<n;i++)
 	    {
-	        if((i+1)==arr[i])
-	        {
-	            v.push_back(arr[i]);
-	        }
+	        if(arr[i]==i+1)v.push_back(i+1);
 	    }
 	    return v;
 	}
