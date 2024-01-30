@@ -1,0 +1,5 @@
+select t1.name from Employee t1 
+join 
+(select managerId , count(*) from Employee group by managerId having count(*)>=5)
+e2
+on t1.id = e2.managerId;
