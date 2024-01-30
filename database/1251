@@ -1,0 +1,8 @@
+SELECT p.product_id, 
+IFNULL(ROUND(SUM(price * units)/SUM(units),2),0) 
+AS average_price 
+FROM Prices p
+left JOIN UnitsSold u 
+ON p.product_id = u.product_id
+and purchase_date between start_date and end_date 
+group by p.product_id
